@@ -169,7 +169,7 @@
             this.timerButton.Size = new System.Drawing.Size(40, 40);
             this.timerButton.TabIndex = 0;
             this.timerButton.UseVisualStyleBackColor = true;
-            this.timerButton.Click += new System.EventHandler(this.button1_Click);
+            this.timerButton.Click += new System.EventHandler(this.timerButton_Click);
             // 
             // Form1
             // 
@@ -191,7 +191,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AntiAFK";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.timerInterval)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
