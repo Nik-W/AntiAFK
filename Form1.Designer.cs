@@ -57,7 +57,7 @@
             this.label2.Location = new System.Drawing.Point(12, 2);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Имя процесса";
             // 
             // label3
@@ -66,7 +66,7 @@
             this.label3.Location = new System.Drawing.Point(12, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 10;
             this.label3.Text = "Интервал (сек.)";
             // 
             // processComboBox
@@ -75,7 +75,7 @@
             this.processComboBox.Location = new System.Drawing.Point(15, 18);
             this.processComboBox.Name = "processComboBox";
             this.processComboBox.Size = new System.Drawing.Size(150, 21);
-            this.processComboBox.TabIndex = 9;
+            this.processComboBox.TabIndex = 0;
             // 
             // timerInterval
             // 
@@ -87,7 +87,7 @@
             0});
             this.timerInterval.Name = "timerInterval";
             this.timerInterval.Size = new System.Drawing.Size(50, 20);
-            this.timerInterval.TabIndex = 11;
+            this.timerInterval.TabIndex = 1;
             this.timerInterval.Value = new decimal(new int[] {
             5,
             0,
@@ -101,7 +101,7 @@
             this.arrowRadioButton.Location = new System.Drawing.Point(10, 42);
             this.arrowRadioButton.Name = "arrowRadioButton";
             this.arrowRadioButton.Size = new System.Drawing.Size(71, 17);
-            this.arrowRadioButton.TabIndex = 12;
+            this.arrowRadioButton.TabIndex = 6;
             this.arrowRadioButton.TabStop = true;
             this.arrowRadioButton.Text = " ← ↑ → ↓";
             this.arrowRadioButton.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.motionRadioButton.Location = new System.Drawing.Point(10, 65);
             this.motionRadioButton.Name = "motionRadioButton";
             this.motionRadioButton.Size = new System.Drawing.Size(67, 17);
-            this.motionRadioButton.TabIndex = 13;
+            this.motionRadioButton.TabIndex = 8;
             this.motionRadioButton.TabStop = true;
             this.motionRadioButton.Text = "W A S D";
             this.motionRadioButton.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.escCheckBox.Location = new System.Drawing.Point(10, 19);
             this.escCheckBox.Name = "escCheckBox";
             this.escCheckBox.Size = new System.Drawing.Size(44, 17);
-            this.escCheckBox.TabIndex = 14;
+            this.escCheckBox.TabIndex = 5;
             this.escCheckBox.Text = "Esc";
             this.escCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -137,7 +137,7 @@
             this.groupBox1.Location = new System.Drawing.Point(101, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(126, 96);
-            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поведение";
             // 
@@ -147,7 +147,7 @@
             this.topMostButton.Location = new System.Drawing.Point(198, 18);
             this.topMostButton.Name = "topMostButton";
             this.topMostButton.Size = new System.Drawing.Size(21, 21);
-            this.topMostButton.TabIndex = 16;
+            this.topMostButton.TabIndex = 4;
             this.topMostButton.UseVisualStyleBackColor = true;
             this.topMostButton.Click += new System.EventHandler(this.topMostButton_Click);
             // 
@@ -157,7 +157,7 @@
             this.updateButton.Location = new System.Drawing.Point(171, 18);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(21, 21);
-            this.updateButton.TabIndex = 10;
+            this.updateButton.TabIndex = 3;
             this.updateButton.UseVisualStyleBackColor = true;
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
@@ -167,7 +167,7 @@
             this.timerButton.Location = new System.Drawing.Point(15, 93);
             this.timerButton.Name = "timerButton";
             this.timerButton.Size = new System.Drawing.Size(40, 40);
-            this.timerButton.TabIndex = 0;
+            this.timerButton.TabIndex = 2;
             this.timerButton.UseVisualStyleBackColor = true;
             this.timerButton.Click += new System.EventHandler(this.timerButton_Click);
             // 
