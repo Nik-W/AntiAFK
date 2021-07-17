@@ -39,9 +39,11 @@
             this.motionRadioButton = new System.Windows.Forms.RadioButton();
             this.escCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.spaceCheckBox = new System.Windows.Forms.CheckBox();
             this.topMostButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
             this.timerButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.timerInterval)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +100,7 @@
             // 
             this.arrowRadioButton.AutoSize = true;
             this.arrowRadioButton.Checked = true;
-            this.arrowRadioButton.Location = new System.Drawing.Point(10, 42);
+            this.arrowRadioButton.Location = new System.Drawing.Point(6, 42);
             this.arrowRadioButton.Name = "arrowRadioButton";
             this.arrowRadioButton.Size = new System.Drawing.Size(71, 17);
             this.arrowRadioButton.TabIndex = 6;
@@ -109,7 +111,7 @@
             // motionRadioButton
             // 
             this.motionRadioButton.AutoSize = true;
-            this.motionRadioButton.Location = new System.Drawing.Point(10, 65);
+            this.motionRadioButton.Location = new System.Drawing.Point(6, 65);
             this.motionRadioButton.Name = "motionRadioButton";
             this.motionRadioButton.Size = new System.Drawing.Size(67, 17);
             this.motionRadioButton.TabIndex = 8;
@@ -122,7 +124,7 @@
             this.escCheckBox.AutoSize = true;
             this.escCheckBox.Checked = true;
             this.escCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.escCheckBox.Location = new System.Drawing.Point(10, 19);
+            this.escCheckBox.Location = new System.Drawing.Point(6, 19);
             this.escCheckBox.Name = "escCheckBox";
             this.escCheckBox.Size = new System.Drawing.Size(44, 17);
             this.escCheckBox.TabIndex = 5;
@@ -131,15 +133,28 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.spaceCheckBox);
             this.groupBox1.Controls.Add(this.escCheckBox);
             this.groupBox1.Controls.Add(this.motionRadioButton);
             this.groupBox1.Controls.Add(this.arrowRadioButton);
             this.groupBox1.Location = new System.Drawing.Point(101, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(126, 96);
+            this.groupBox1.Size = new System.Drawing.Size(145, 90);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Поведение";
+            // 
+            // spaceCheckBox
+            // 
+            this.spaceCheckBox.AutoSize = true;
+            this.spaceCheckBox.Checked = true;
+            this.spaceCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.spaceCheckBox.Location = new System.Drawing.Point(56, 19);
+            this.spaceCheckBox.Name = "spaceCheckBox";
+            this.spaceCheckBox.Size = new System.Drawing.Size(57, 17);
+            this.spaceCheckBox.TabIndex = 9;
+            this.spaceCheckBox.Text = "Space";
+            this.spaceCheckBox.UseVisualStyleBackColor = true;
             // 
             // topMostButton
             // 
@@ -171,11 +186,22 @@
             this.timerButton.UseVisualStyleBackColor = true;
             this.timerButton.Click += new System.EventHandler(this.timerButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(225, 18);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 21);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "?";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 149);
+            this.ClientSize = new System.Drawing.Size(262, 144);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.topMostButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.timerInterval);
@@ -214,6 +240,8 @@
         private System.Windows.Forms.CheckBox escCheckBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button topMostButton;
+        private System.Windows.Forms.CheckBox spaceCheckBox;
+        private System.Windows.Forms.Button button1;
     }
 }
 

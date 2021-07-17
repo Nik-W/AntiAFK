@@ -70,5 +70,17 @@ namespace AntiAFK.Properties {
                 this["TimerInterval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool SpaceChecked {
+            get {
+                return ((bool)(this["SpaceChecked"]));
+            }
+            set {
+                this["SpaceChecked"] = value;
+            }
+        }
     }
 }

@@ -9,20 +9,15 @@ namespace AntiAFK
     /*
         todo:
         Проверка W A S D 
-        Добавление Пробел
         Добавление движения мыши
-        Проверка горячей клавиши
         
-        Настройка метода работы (старый и новый). Учесть, что на старом метода уже функционал (или вырезать старый?)
+        Настройка метода работы (старый и новый).
+            Проверить старый с РДР2, если работает. То оставить, если нет, то убрать
+            Сделать доп настройку выбора
         Добавить справку.
         Файл Настроек
 
         Придумать ещё функционал.
-
-        Код в классы:
-            Захват клавиш в один класс
-            Горячие клавиши в другой класс. (регистрация, АНрегистрация, обработка нажатия)
-            Класс констант набора клавиш отдельно
          
     */
 
@@ -35,7 +30,7 @@ namespace AntiAFK
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
         //[DllImport("user32.dll")]
         //public static extern void SetCursorPos(int x, int y);
-        private const int SW_RESTORE = 4; //режим отображения
+        private const int SwRestore = 4; //режим отображения
 
         /*//константы клавиш - старый метод
         private static readonly string[] ArrowKeys = { "{Down}", "{Up}", "{Left}", "{Right}" };
@@ -51,21 +46,25 @@ namespace AntiAFK
             InitializeComponent();
             
             //регистрация горячей клавиши
-            bool res = HotKey.RegisterHotKey(this.Handle, 1, HotKey.MOD_ALT, (uint)Keys.S);
+            bool res = HotKey.RegisterHotKey(this.Handle, 1, HotKey.ModAlt, (uint)Keys.S);
             if (res == false) MessageBox.Show("RegisterHotKey failed");
 
             GetProcessList();
 
+            //загрузка настроек
             timerInterval.Value = Properties.Settings.Default.TimerInterval;
             escCheckBox.Checked = Properties.Settings.Default.EscChecked;
+            spaceCheckBox.Checked = Properties.Settings.Default.SpaceChecked;
             arrowRadioButton.Checked = Properties.Settings.Default.ArrowChecked;
             motionRadioButton.Checked = Properties.Settings.Default.MotionChecked;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //сохранение настроек
             Properties.Settings.Default.TimerInterval = (int)timerInterval.Value;
             Properties.Settings.Default.EscChecked = escCheckBox.Checked;
+            Properties.Settings.Default.SpaceChecked = spaceCheckBox.Checked;
             Properties.Settings.Default.ArrowChecked = arrowRadioButton.Checked;
             Properties.Settings.Default.MotionChecked = motionRadioButton.Checked;
             Properties.Settings.Default.Save();
@@ -77,10 +76,14 @@ namespace AntiAFK
         //обработчик сообщений для окна
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == HotKey.WM_HOTKEY)
+            if (m.Msg == HotKey.WmHotkey)
             {
                 //обработка горячей клавиши
-                if (timer.Enabled) TimerStop();
+                if (timer.Enabled)
+                {
+                    TimerStop();
+                    Console.Beep();
+                }
                 m.Result = (IntPtr)0;
                 return;
             }
@@ -123,7 +126,7 @@ namespace AntiAFK
                 if (processes.Any()) //если есть какой либо процесс
                 {
                     var handle = processes.First().MainWindowHandle; //берём его дескриптор
-                    ShowWindow(handle, SW_RESTORE); //разворачиваем окно
+                    ShowWindow(handle, SwRestore); //разворачиваем окно
                     SetForegroundWindow(handle); //даём окну управление
                 }
                 else //если процессов нет
@@ -139,6 +142,7 @@ namespace AntiAFK
 
                 timerInterval.Enabled = false;
                 escCheckBox.Enabled = false;
+                spaceCheckBox.Enabled = false;
                 arrowRadioButton.Enabled = false;
                 motionRadioButton.Enabled = false;
 
@@ -179,12 +183,18 @@ namespace AntiAFK
             {
                 KeyboardSend.Key(Keys.Escape);
             }
-            for (var i = 0; i < 5; i++) //ИЗМЕНИТЬ ЛОГИКУ. НЕ 5 ПОДРЯД, а по одному!
+            if (spaceCheckBox.Checked)
             {
-                System.Threading.Thread.Sleep(100);
-                KeyboardSend.Key(_randomKeys[new Random().Next(0, _randomKeys.Length)]);
-                //KeyboardSend.Key(Keys.Space);
+                KeyboardSend.Key(Keys.Space);
             }
+            //for (var i = 0; i < 5; i++) //ИЗМЕНИТЬ ЛОГИКУ. НЕ 5 ПОДРЯД, а по одному!
+            //{
+            //    System.Threading.Thread.Sleep(100);
+            //    KeyboardSend.Key(_randomKeys[new Random().Next(0, _randomKeys.Length)]);
+            //    //KeyboardSend.Key(Keys.Space);
+            //}
+            System.Threading.Thread.Sleep(100);
+            KeyboardSend.Key(_randomKeys[new Random().Next(0, _randomKeys.Length)]);
         }
 
         private void topMostButton_Click(object sender, EventArgs e)
@@ -204,6 +214,11 @@ namespace AntiAFK
         private void updateButton_Click(object sender, EventArgs e)
         {
             GetProcessList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(button1, "https://github.com/Nik-W/AntiAFK");
         }
     }
 }
