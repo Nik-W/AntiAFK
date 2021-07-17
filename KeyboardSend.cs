@@ -7,18 +7,18 @@ namespace AntiAFK
     {
         [DllImport("user32.dll")]
         private static extern void keybd_event(byte bVk, byte bScan, int dwFlags, int dwExtraInfo);
-        private const int KEYEVENTF_EXTENDEDKEY = 1;
-        private const int KEYEVENTF_KEYUP = 2;
+        private const int KeyeventfExtendedkey = 1;
+        private const int KeyeventfKeyup = 2;
         private const int KeystrokeTimeout = 500;
 
         private static void KeyDown(Keys vKey)
         {   //метод нажатия клавиши
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY, 0);
+            keybd_event((byte)vKey, 0, KeyeventfExtendedkey, 0);
         }
 
         private static void KeyUp(Keys vKey)
         {   //метод отпускания клавиши
-            keybd_event((byte)vKey, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
+            keybd_event((byte)vKey, 0, KeyeventfExtendedkey | KeyeventfKeyup, 0);
         }
 
         public static void Key(Keys vKey)

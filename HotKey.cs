@@ -15,10 +15,10 @@ namespace AntiAFK
         public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
         
         //константы горячих клавишей и сообщения горячей клавиши
-        public const int MOD_ALT = 0x1;
-        public const int MOD_CONTROL = 0x2;
-        public const int MOD_SHIFT = 0x4;
-        public const int MOD_WIN = 0x8;
-        public const int WM_HOTKEY = 0x312;
+        public const int ModAlt = 0x1;
+        public const int ModControl = 0x2;
+        public const int ModShift = 0x4;
+        public const int ModWin = 0x8;
+        public const int WmHotkey = 0x312;
     }
 }
